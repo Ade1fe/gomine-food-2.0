@@ -424,7 +424,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
         directory = await getApplicationDocumentsDirectory();
       }
 
-      final filePath = '${directory?.path}/$fileName';
+      final filePath = '${directory!.path}/$fileName';
       final file = File(filePath);
 
       if (await file.exists()) {
@@ -470,7 +470,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
         directory = await getApplicationDocumentsDirectory();
       }
 
-      final file = File('${directory?.path}/${recipe['fileName']}');
+      final file = File('${directory!.path}/${recipe['fileName']}');
       if (await file.exists()) {
         await file.delete();
       }
@@ -560,7 +560,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
                   
                   // Delete all recipe files
                   for (var recipe in _recipes) {
-                    final file = File('${directory?.path}/${recipe['fileName']}');
+                    final file = File('${directory!.path}/${recipe['fileName']}');
                     if (await file.exists()) {
                       await file.delete();
                     }
