@@ -101,7 +101,7 @@ class AllItemsScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha:0.1),
+                          color: Colors.grey.withValues(alpha: 0.1),
                           spreadRadius: 1,
                           blurRadius: 8,
                           offset: const Offset(0, 3),
@@ -213,7 +213,7 @@ class AllItemsScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withValues(alpha:0.1),
+                        color: Colors.grey.withValues(alpha: 0.1),
                         spreadRadius: 1,
                         blurRadius: 8,
                         offset: const Offset(0, 3),
@@ -285,7 +285,7 @@ class AllItemsScreen extends StatelessWidget {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.orange.withValues(alpha:0.2),
+                                    color: Colors.orange.withValues(alpha: 0.2),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Row(
@@ -310,7 +310,7 @@ class AllItemsScreen extends StatelessWidget {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.blue.withValues(alpha:0.2),
+                                    color: Colors.blue.withValues(alpha: 0.2),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Row(
@@ -424,7 +424,7 @@ class AllCategoriesScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha:0.09),
+                    color: Colors.black.withValues(alpha: 0.09),
                     blurRadius: 10,
                     spreadRadius: 0,
                     offset: Offset(0, 3),
@@ -438,7 +438,7 @@ class AllCategoriesScreen extends StatelessWidget {
                     width: 70,
                     height: 70,
                     decoration: BoxDecoration(
-                      color: categoryColor.withValues(alpha:0.3),
+                      color: categoryColor.withValues(alpha: 0.3),
                       shape: BoxShape.circle,
                     ),
                     padding: EdgeInsets.all(12),
@@ -651,7 +651,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.orange.withValues(alpha:0.2),
+                    color: Colors.orange.withValues(alpha: 0.2),
                     blurRadius: 20,
                     spreadRadius: 1,
                   ),
@@ -696,7 +696,7 @@ class _HomeScreenState extends State<HomeScreen> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withValues(alpha:0.2),
+                  color: Colors.grey.withValues(alpha: 0.2),
                   spreadRadius: 1,
                   blurRadius: 6,
                   offset: const Offset(0, 2),
@@ -819,7 +819,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       image: NetworkImage(meal['strMealThumb']),
                                       fit: BoxFit.cover,
                                       colorFilter: ColorFilter.mode(
-                                        Colors.black.withValues(alpha:0.3),
+                                        Colors.black.withValues(alpha: 0.3),
                                         BlendMode.darken,
                                       ),
                                     ),
@@ -864,8 +864,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           meal['strArea'] ??
                                               'International Cuisine',
                                           style: TextStyle(
-                                            color:
-                                                Colors.white.withValues(alpha:0.8),
+                                            color: Colors.white
+                                                .withValues(alpha: 0.8),
                                             fontSize: 12,
                                           ),
                                         ),
@@ -922,15 +922,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onTap: () =>
                                     _navigateToCategoryDetail(category),
                                 child: Container(
-                                  width: 130,
+                                  width: 100,
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 8, vertical: 10),
+                                      horizontal: 5, vertical: 10),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(16),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.black.withValues(alpha:0.1),
+                                        color:
+                                            Colors.black.withValues(alpha: 0.1),
                                         blurRadius: 10,
                                         spreadRadius: 0,
                                         offset: Offset(0, 5),
@@ -944,7 +945,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         height: 60,
                                         width: 60,
                                         decoration: BoxDecoration(
-                                          color: categoryColor.withValues(alpha:0.3),
+                                          color: categoryColor.withValues(
+                                              alpha: 0.3),
                                           shape: BoxShape.circle,
                                         ),
                                         padding: EdgeInsets.all(10),
@@ -1015,7 +1017,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(16),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.withValues(alpha:0.1),
+                                    color: Colors.grey.withValues(alpha: 0.1),
                                     spreadRadius: 1,
                                     blurRadius: 8,
                                     offset: const Offset(0, 3),
@@ -1094,7 +1096,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ),
                                               decoration: BoxDecoration(
                                                 color: Colors.orange
-                                                    .withValues(alpha:0.2),
+                                                    .withValues(alpha: 0.2),
                                                 borderRadius:
                                                     BorderRadius.circular(12),
                                               ),
@@ -1124,7 +1126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ),
                                               decoration: BoxDecoration(
                                                 color: Colors.blue
-                                                    .withValues(alpha:0.2),
+                                                    .withValues(alpha: 0.2),
                                                 borderRadius:
                                                     BorderRadius.circular(12),
                                               ),
@@ -1222,7 +1224,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     borderRadius: BorderRadius.circular(16),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.grey.withValues(alpha:0.1),
+                                        color:
+                                            Colors.grey.withValues(alpha: 0.1),
                                         spreadRadius: 1,
                                         blurRadius: 8,
                                         offset: const Offset(0, 3),
@@ -1346,7 +1349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(16),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withValues(alpha:0.1),
+                                color: Colors.grey.withValues(alpha: 0.1),
                                 spreadRadius: 1,
                                 blurRadius: 8,
                                 offset: const Offset(0, 3),
