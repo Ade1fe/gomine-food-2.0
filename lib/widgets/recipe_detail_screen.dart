@@ -2954,55 +2954,113 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
       }
 
       // Add cover page with recipe title and image
+      // pdf.addPage(
+      //   pw.Page(
+      //     pageFormat: PdfPageFormat.a4,
+      //     build: (pw.Context context) {
+      //       return pw.Column(
+      //         crossAxisAlignment: pw.CrossAxisAlignment.center,
+      //         mainAxisAlignment: pw.MainAxisAlignment.center,
+      //         children: [
+      //           pw.Text(
+      //             widget.mealName,
+      //             style: pw.TextStyle(
+      //                 fontSize: 28, fontWeight: pw.FontWeight.bold),
+      //             textAlign: pw.TextAlign.center,
+      //           ),
+      //           pw.SizedBox(height: 20),
+
+      //           // Add image if available
+      //           if (image != null)
+      //             pw.Container(
+      //               width: 300,
+      //               height: 200,
+      //               decoration: pw.BoxDecoration(
+      //                 image: pw.DecorationImage(
+      //                   image: image,
+      //                   fit: pw.BoxFit.cover,
+      //                 ),
+      //               ),
+      //             ),
+
+      //           pw.SizedBox(height: 20),
+      //           pw.Text(
+      //             'Category: ${recipeDetails['strCategory'] ?? 'Main Course'}',
+      //             style: const pw.TextStyle(fontSize: 14),
+      //           ),
+      //           pw.Text(
+      //             'Cuisine: ${recipeDetails['strArea'] ?? 'International'}',
+      //             style: const pw.TextStyle(fontSize: 14),
+      //           ),
+
+      //           pw.SizedBox(height: 40),
+      //           pw.Text(
+      //             'Recipe Details',
+      //             style: pw.TextStyle(
+      //               fontSize: 16,
+      //               fontWeight: pw.FontWeight.bold,
+      //               decoration: pw.TextDecoration.underline,
+      //             ),
+      //           ),
+      //         ],
+      //       );
+      //     },
+      //   ),
+      // );
+
+      // Add cover page with recipe title and image
       pdf.addPage(
         pw.Page(
           pageFormat: PdfPageFormat.a4,
           build: (pw.Context context) {
-            return pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.center,
-              mainAxisAlignment: pw.MainAxisAlignment.center,
-              children: [
-                pw.Text(
-                  widget.mealName,
-                  style: pw.TextStyle(
-                      fontSize: 28, fontWeight: pw.FontWeight.bold),
-                  textAlign: pw.TextAlign.center,
-                ),
-                pw.SizedBox(height: 20),
+            return pw.Center(
+              // Wrap with pw.Center to center everything on the page
+              child: pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.center,
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Text(
+                    widget.mealName,
+                    style: pw.TextStyle(
+                        fontSize: 28, fontWeight: pw.FontWeight.bold),
+                    textAlign: pw.TextAlign.center,
+                  ),
+                  pw.SizedBox(height: 20),
 
-                // Add image if available
-                if (image != null)
-                  pw.Container(
-                    width: 300,
-                    height: 200,
-                    decoration: pw.BoxDecoration(
-                      image: pw.DecorationImage(
-                        image: image,
-                        fit: pw.BoxFit.cover,
+                  // Add image if available
+                  if (image != null)
+                    pw.Container(
+                      width: 300,
+                      height: 200,
+                      decoration: pw.BoxDecoration(
+                        image: pw.DecorationImage(
+                          image: image,
+                          fit: pw.BoxFit.cover,
+                        ),
                       ),
                     ),
+
+                  pw.SizedBox(height: 20),
+                  pw.Text(
+                    'Category: ${recipeDetails['strCategory'] ?? 'Main Course'}',
+                    style: const pw.TextStyle(fontSize: 14),
+                  ),
+                  pw.Text(
+                    'Cuisine: ${recipeDetails['strArea'] ?? 'International'}',
+                    style: const pw.TextStyle(fontSize: 14),
                   ),
 
-                pw.SizedBox(height: 20),
-                pw.Text(
-                  'Category: ${recipeDetails['strCategory'] ?? 'Main Course'}',
-                  style: const pw.TextStyle(fontSize: 14),
-                ),
-                pw.Text(
-                  'Cuisine: ${recipeDetails['strArea'] ?? 'International'}',
-                  style: const pw.TextStyle(fontSize: 14),
-                ),
-
-                pw.SizedBox(height: 40),
-                pw.Text(
-                  'Recipe Details',
-                  style: pw.TextStyle(
-                    fontSize: 16,
-                    fontWeight: pw.FontWeight.bold,
-                    decoration: pw.TextDecoration.underline,
+                  pw.SizedBox(height: 40),
+                  pw.Text(
+                    'Recipe Details',
+                    style: pw.TextStyle(
+                      fontSize: 16,
+                      fontWeight: pw.FontWeight.bold,
+                      decoration: pw.TextDecoration.underline,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           },
         ),
@@ -3307,7 +3365,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -3330,7 +3388,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha:0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -3367,7 +3425,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha:0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -3461,7 +3519,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                                   end: Alignment.bottomCenter,
                                   colors: [
                                     Colors.transparent,
-                                    Colors.black.withValues(alpha:0.8),
+                                    Colors.black.withValues(alpha: 0.8),
                                   ],
                                 ),
                               ),
@@ -3514,7 +3572,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                                         vertical: 6,
                                       ),
                                       decoration: BoxDecoration(
-                                        color: Colors.white.withValues(alpha:0.2),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.2),
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: Text(
@@ -3581,7 +3640,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha:0.05),
+                              color: Colors.black.withValues(alpha: 0.05),
                               blurRadius: 10,
                               spreadRadius: 0,
                               offset: const Offset(0, 2),
@@ -3632,7 +3691,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha:0.05),
+                              color: Colors.black.withValues(alpha: 0.05),
                               blurRadius: 10,
                               spreadRadius: 0,
                               offset: const Offset(0, 2),
@@ -3709,7 +3768,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                               borderRadius: BorderRadius.circular(16),
                             ),
                             elevation: 4,
-                            shadowColor: primaryColor.withValues(alpha:0.4),
+                            shadowColor: primaryColor.withValues(alpha: 0.4),
                           ),
                         ),
                       ),
@@ -3727,7 +3786,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
     return Container(
       height: 40,
       width: 1,
-      color: Colors.grey.withValues(alpha:0.3),
+      color: Colors.grey.withValues(alpha: 0.3),
     );
   }
 
@@ -3768,7 +3827,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha:0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             spreadRadius: 0,
             offset: const Offset(0, 2),
@@ -3791,7 +3850,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
             shrinkWrap: true,
             itemCount: ingredients.length,
             separatorBuilder: (context, index) => Divider(
-              color: Colors.grey.withValues(alpha:0.3),
+              color: Colors.grey.withValues(alpha: 0.3),
               height: 16,
             ),
             itemBuilder: (context, index) {
@@ -3801,7 +3860,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: primaryColor.withValues(alpha:0.1),
+                      color: primaryColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Center(
@@ -3893,7 +3952,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha:0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             spreadRadius: 0,
             offset: const Offset(0, 2),
@@ -3974,7 +4033,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha:0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             spreadRadius: 0,
             offset: const Offset(0, 2),
@@ -4047,10 +4106,10 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                               vertical: 8,
                             ),
                             decoration: BoxDecoration(
-                              color: primaryColor.withValues(alpha:0.1),
+                              color: primaryColor.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
-                                color: primaryColor.withValues(alpha:0.3),
+                                color: primaryColor.withValues(alpha: 0.3),
                                 width: 1,
                               ),
                             ),
