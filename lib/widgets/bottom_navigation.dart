@@ -503,7 +503,7 @@ class _BottomNavigationState extends State<BottomNavigation>
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha:0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, -5),
           ),
@@ -542,7 +542,7 @@ class _BottomNavigationState extends State<BottomNavigation>
             horizontal: 16, vertical: 6), // Reduced vertical padding
         decoration: BoxDecoration(
           color: isSelected
-              ? Theme.of(context).primaryColor.withValues(alpha:0.1)
+              ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),
@@ -648,7 +648,7 @@ class _BottomNavigationWithBadgesState extends State<BottomNavigationWithBadges>
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha:0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, -5),
           ),
@@ -662,11 +662,12 @@ class _BottomNavigationWithBadgesState extends State<BottomNavigationWithBadges>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildNavItem(0, 'Home', Icons.home_rounded),
-              _buildNavItem(1, 'User', Icons.person_rounded),
-              _buildNavItemWithBadge(
-                  2, 'Download', Icons.download_done_rounded, widget.downloadItemCount),
-              _buildNavItemWithBadge(3, 'Message', Icons.chat_bubble_rounded,
-                  widget.unreadMessageCount),
+              _buildNavItem(1, 'Search', Icons.search_rounded),
+              _buildNavItemWithBadge(2, 'Explore', Icons.download_done_rounded,
+                  widget.downloadItemCount),
+              // _buildNavItemWithBadge(
+              //     3, 'Profile', Icons.person, widget.unreadMessageCount),
+              _buildNavItem(3, 'Profile', Icons.person),
             ],
           ),
         ),
@@ -688,7 +689,7 @@ class _BottomNavigationWithBadgesState extends State<BottomNavigationWithBadges>
             horizontal: 16, vertical: 6), // Reduced vertical padding
         decoration: BoxDecoration(
           color: isSelected
-              ? Theme.of(context).primaryColor.withValues(alpha:0.1)
+              ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),
@@ -744,7 +745,7 @@ class _BottomNavigationWithBadgesState extends State<BottomNavigationWithBadges>
             horizontal: 16, vertical: 6), // Reduced vertical padding
         decoration: BoxDecoration(
           color: isSelected
-              ? Theme.of(context).primaryColor.withValues(alpha:0.1)
+              ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),

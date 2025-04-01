@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gomine_food/widgets/recipe_library_screen.dart';
 import '../screens/dashboard/home_screen.dart';
+import '../screens/search/search_screen.dart';
 import '../widgets/bottom_navigation.dart';
 import '../services/download_service.dart';
 
@@ -19,7 +20,7 @@ class _MainContainerScreenState extends State<MainContainerScreen> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const Center(child: Text('User Profile')),
+    const SearchScreen(),
     const RecipeLibraryScreen(),
     const Center(child: Text('Messages')),
   ];
@@ -28,7 +29,7 @@ class _MainContainerScreenState extends State<MainContainerScreen> {
   void initState() {
     super.initState();
     _initializeDownloadCount();
-    
+
     // Listen for changes to the download count
     _downloadService.downloadCount.addListener(_updateDownloadCount);
   }
@@ -74,7 +75,7 @@ class _MainContainerScreenState extends State<MainContainerScreen> {
         initialIndex: _currentIndex,
         onTabChanged: _onTabChanged,
         downloadItemCount: _downloadCount,
-        unreadMessageCount: 5,
+        // unreadMessageCount: 5,
       ),
     );
   }
