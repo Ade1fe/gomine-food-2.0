@@ -1734,7 +1734,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   // In-memory storage for recent searches
   List<String> _recentSearches = [];
-  List<String> _popularSearches = [
+  final List<String> _popularSearches = [
     'Pasta',
     'Chicken',
     'Vegetarian',
@@ -1752,11 +1752,12 @@ class _SearchScreenState extends State<SearchScreen>
   List<dynamic> _searchResults = [];
   bool _isLoading = false;
   String _errorMessage = '';
+  // ignore: unused_field
   bool _showClearButton = false;
 
   // For filtering
   String _selectedCategory = 'All';
-  List<String> _categories = [
+  final List<String> _categories = [
     'All',
     'Breakfast',
     'Lunch',
@@ -2398,59 +2399,80 @@ class _SearchScreenState extends State<SearchScreen>
             children: [
               // Search bar
               Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: .05),
-                      blurRadius: 10,
-                      spreadRadius: 0,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    CustomSearchField(
-                      controller: _searchController,
-                      hintText: 'Search for recipes, ingredients...',
-                      onChanged: (value) {
-                        // We'll handle search on submit
-                      },
-                      onClear: () {
-                        _searchController.clear();
-                        setState(() {
-                          _showClearButton = false;
-                        });
-                      },
-                      backgroundColor: Colors.grey.shade100,
-                    ),
-                    const SizedBox(height: 8),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () => _performSearch(_searchController.text),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryColor,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          shape: RoundedRectangleBorder(
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: .05),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(25),
                           ),
-                        ),
-                        child: const Text(
-                          'Search',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                          child: TextField(
+                            controller: _searchController,
+                            decoration: InputDecoration(
+                              hintText: 'Search for recipes, ingredients...',
+                              prefixIcon: Icon(Icons.search),
+                              suffixIcon: _showClearButton
+                                  ? IconButton(
+                                      icon: Icon(Icons.clear),
+                                      onPressed: () {
+                                        _searchController.clear();
+                                        setState(() {
+                                          _showClearButton = false;
+                                        });
+                                      },
+                                    )
+                                  : null,
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 12),
+                            ),
+                            onChanged: (value) {
+                              setState(() {
+                                _showClearButton = value.isNotEmpty;
+                              });
+                            },
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        flex: 1,
+                        child: ElevatedButton(
+                          onPressed: () =>
+                              _performSearch(_searchController.text),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primaryColor,
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
+                          child: Text(
+                            'Search',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )),
 
               // Tab bar
               Container(

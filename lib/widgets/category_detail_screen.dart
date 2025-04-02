@@ -427,6 +427,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
   }
 
   // Add category to favorites
+  // ignore: unused_element
   Future<void> _addCategoryToFavorites() async {
     try {
       // Generate a unique filename for the category
@@ -1353,7 +1354,8 @@ class AllMealsScreen extends StatefulWidget {
 class _AllMealsScreenState extends State<AllMealsScreen> {
   final TextEditingController _searchController = TextEditingController();
   List<dynamic> filteredMeals = [];
-  bool _showTitle = true;
+  // ignore: unused_field
+  final bool _showTitle = true;
   // Add this map to track favorite status for each meal
   final Map<String, bool> _favoriteMeals = {};
 

@@ -16,7 +16,7 @@ class RecipeLibraryScreen extends StatefulWidget {
 class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
   List<Map<String, dynamic>> _recipes = [];
   List<Map<String, dynamic>> _favoriteRecipes = [];
-  List<Map<String, dynamic>> _filteredRecipes = []; 
+  List<Map<String, dynamic>> _filteredRecipes = [];
   bool _isLoading = true;
   bool _showOnlyFavorites = false; // Toggle for favorites filter
   // Map to track favorite status of recipes
@@ -912,17 +912,17 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
                             const SizedBox(width: 8),
                             TextButton(
                               onPressed: _toggleFavoritesFilter,
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                minimumSize: const Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
                               child: const Text(
                                 'Show All',
                                 style: TextStyle(
                                   color: Colors.pink,
                                   decoration: TextDecoration.underline,
                                 ),
-                              ),
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                minimumSize: const Size(0, 0),
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
                             ),
                           ],
@@ -1010,8 +1010,8 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
                                           right: 8,
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color:
-                                                  Colors.black.withOpacity(0.3),
+                                              color: Colors.black
+                                                  .withValues(alpha: .3),
                                               shape: BoxShape.circle,
                                             ),
                                             child: IconButton(
@@ -1200,8 +1200,8 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _showFavoritesBottomSheet,
         backgroundColor: Colors.pink,
-        child: const Icon(Icons.favorite),
         tooltip: 'View Favorites',
+        child: const Icon(Icons.favorite),
       ),
     );
   }
