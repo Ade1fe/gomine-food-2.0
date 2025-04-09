@@ -1791,6 +1791,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
 
   Future<void> _openRecipe(String fileName) async {
     // Get the recipe from the filtered recipes
+    // ignore: unused_local_variable
     final recipe = _filteredRecipes.firstWhere(
       (r) => r['fileName'] == fileName,
       orElse: () => _favoriteRecipes.firstWhere(
@@ -1989,6 +1990,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
       appBar: AppBar(
         title: const Text('My Recipe Library'),
         backgroundColor: primaryColor,
+          automaticallyImplyLeading: false, 
         foregroundColor: Colors.white,
         actions: [
           // Add favorites filter toggle

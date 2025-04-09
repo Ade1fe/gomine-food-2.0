@@ -1,3 +1,4 @@
+
 import 'dart:math' show Random;
 
 import 'package:flutter/material.dart';
@@ -478,14 +479,26 @@ class _HomeScreenState extends State<HomeScreen> {
   List<dynamic> randomMeals = [];
   String errorMessage = '';
   bool showAllCategories = false;
+  
+  // Add this to track if the widget is in the process of being disposed
+  bool _disposed = false;
 
   @override
   void initState() {
     super.initState();
     _fetchData();
   }
+  
+  @override
+  void dispose() {
+    _disposed = true;
+    _searchController.dispose();
+    super.dispose();
+  }
 
   Future<void> _fetchData() async {
+    if (_disposed) return;
+    
     setState(() {
       isLoading = true;
       errorMessage = '';
@@ -516,6 +529,9 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
 
+      // Check if widget is still mounted before updating state
+      if (_disposed) return;
+
       if (categoriesResponse.statusCode == 200 &&
           popularMealsResponse.statusCode == 200) {
         final categoriesData = json.decode(categoriesResponse.body);
@@ -528,23 +544,32 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         }
 
-        setState(() {
-          categories = parsedCategories;
-          popularMeals = popularMealsData['meals'] ?? [];
-          randomMeals = randomMealsList;
-          isLoading = false;
-        });
+        // Check if widget is still mounted before calling setState
+        if (!_disposed && mounted) {
+          setState(() {
+            categories = parsedCategories;
+            popularMeals = popularMealsData['meals'] ?? [];
+            randomMeals = randomMealsList;
+            isLoading = false;
+          });
+        }
       } else {
+        // Check if widget is still mounted before calling setState
+        if (!_disposed && mounted) {
+          setState(() {
+            errorMessage = 'Failed to load data. Please try again.';
+            isLoading = false;
+          });
+        }
+      }
+    } catch (e) {
+      // Check if widget is still mounted before calling setState
+      if (!_disposed && mounted) {
         setState(() {
-          errorMessage = 'Failed to load data. Please try again.';
+          errorMessage = 'Error: $e';
           isLoading = false;
         });
       }
-    } catch (e) {
-      setState(() {
-        errorMessage = 'Error: $e';
-        isLoading = false;
-      });
     }
   }
 

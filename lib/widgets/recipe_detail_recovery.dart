@@ -33,30 +33,37 @@ class RecipeRecovery {
       );
 
       // Close the loading dialog
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pop();
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         if (data['meals'] != null && data['meals'].isNotEmpty) {
           // Recipe found in API, show recovery options
+          // ignore: use_build_context_synchronously
           return await _showRecoveryOptions(context, recipeId, recipeName);
         } else {
           // Recipe not found in API
+          // ignore: use_build_context_synchronously
           _showRecoveryFailedDialog(context);
           return false;
         }
       } else {
         // API request failed
+        // ignore: use_build_context_synchronously
         _showRecoveryFailedDialog(context);
         return false;
       }
     } catch (e) {
       // Close the loading dialog if still showing
+      // ignore: use_build_context_synchronously
       if (Navigator.of(context).canPop()) {
+        // ignore: use_build_context_synchronously
         Navigator.of(context).pop();
       }
       
       // Show error
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Recovery failed: $e'),
@@ -159,6 +166,7 @@ class RecipeRecovery {
       }
       return null;
     } catch (e) {
+      // ignore: avoid_print
       print('Error getting recipe from favorites: $e');
       return null;
     }

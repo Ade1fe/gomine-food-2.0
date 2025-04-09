@@ -5,7 +5,6 @@ import 'package:gomine_food/widgets/view_all_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
-import 'app_scaffold.dart' show AppScaffold;
 import 'recipe_detail_screen.dart' show RecipeDetailScreen;
 
 // Custom search field widget

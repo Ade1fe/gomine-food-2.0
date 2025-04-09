@@ -50,6 +50,7 @@ class RecipeFileHandler {
       
       if (file == null) {
         // File not found in any location
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Recipe file not found. It may have been moved or deleted.'),
@@ -79,6 +80,7 @@ class RecipeFileHandler {
           return true;
         } catch (e) {
           // If both methods fail, show error
+          // ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Unable to open PDF: $e'),
@@ -93,6 +95,7 @@ class RecipeFileHandler {
         return true;
       }
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error opening recipe: $e'),
