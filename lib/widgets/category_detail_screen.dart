@@ -697,25 +697,25 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
           ),
         ),
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.black26,
-            child: IconButton(
-              icon: const Icon(Icons.share, color: Colors.white),
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text('Share functionality coming soon'),
-                    backgroundColor: primaryColor,
-                  ),
-                );
-              },
-            ),
-          ),
-        ),
-      ],
+      // actions: [
+      //   Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: CircleAvatar(
+      //       backgroundColor: Colors.black26,
+      //       child: IconButton(
+      //         icon: const Icon(Icons.share, color: Colors.white),
+      //         onPressed: () {
+      //           ScaffoldMessenger.of(context).showSnackBar(
+      //             SnackBar(
+      //               content: const Text('Share functionality coming soon'),
+      //               backgroundColor: primaryColor,
+      //             ),
+      //           );
+      //         },
+      //       ),
+      //     ),
+      //   ),
+      // ],
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           widget.category.strCategory,
