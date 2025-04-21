@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gomine_food/screens/profile/profile_screen.dart';
 import 'package:gomine_food/widgets/recipe_library_screen.dart';
 import '../screens/dashboard/home_screen.dart';
 import '../screens/search/search_screen.dart';
@@ -22,7 +23,7 @@ class _MainContainerScreenState extends State<MainContainerScreen> {
     const HomeScreen(),
     const SearchScreen(),
     const RecipeLibraryScreen(),
-    const Center(child: Text('Messages')),
+    const ProfileScreen(),
   ];
 
   @override

@@ -5022,8 +5022,8 @@ import 'package:open_file/open_file.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:android_intent_plus/android_intent.dart';
-import 'package:cross_file/cross_file.dart';
-import 'package:path_provider/path_provider.dart' show getTemporaryDirectory;
+// import 'package:cross_file/cross_file.dart';
+// import 'package:path_provider/path_provider.dart' show getTemporaryDirectory;
 import '../services/download_service.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/recipe_library_screen.dart';
@@ -5746,7 +5746,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
 
     // Create recipe text content for sharing
     final StringBuffer recipeText = StringBuffer();
-    recipeText.writeln('${widget.mealName.toUpperCase()}');
+    recipeText.writeln(widget.mealName.toUpperCase());
     recipeText.writeln('');
 
     // Add category and cuisine
