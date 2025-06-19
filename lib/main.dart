@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gomine Food',
       debugShowCheckedModeBanner: false,
       theme: AppThemes.darkTheme(context),
       home: const SplashScreen(),

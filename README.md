@@ -1,4 +1,4 @@
-# Gomine Food
+# 🍽️ Gomine Food
 
 <p align="center">
   <img src="assets/logo.png" alt="Gomine Food Logo" width="200"/>
@@ -8,45 +8,48 @@
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Built%20with-Flutter-02569B?style=flat-square&logo=flutter" alt="Built with Flutter"></a>
   <a href="https://www.themealdb.com/api.php"><img src="https://img.shields.io/badge/API-TheMealDB-yellow?style=flat-square" alt="TheMealDB API"></a>
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square" alt="Version 1.0.0">
+  <img src="https://img.shields.io/badge/Version-2.0.0-blue?style=flat-square" alt="Version 2.0.0">
 </p>
+
+---
 
 ## 📋 Overview
 
-Gomine Food is a feature-rich recipe application built with Flutter that leverages TheMealDB API to provide users with an extensive collection of recipes from around the world. The app offers an intuitive interface for discovering, saving, and cooking delicious meals with step-by-step instructions.
+**Gomine Food** is a feature-rich Flutter application for discovering and cooking delicious meals. It leverages the [TheMealDB API](https://www.themealdb.com/api.php) to provide access to a wide range of recipes from global cuisines. The app offers a seamless user experience, from browsing to saving favorites — even offline!
+
+---
 
 ## ✨ Features
 
-### Recipe Discovery
-- Browse thousands of recipes from TheMealDB's extensive collection
-- Explore recipes by categories (Breakfast, Lunch, Dinner, Desserts, etc.)
-- Discover meals by region/cuisine (Italian, Mexican, Indian, etc.)
-- View trending and popular recipes
+### 🍳 Recipe Discovery
+- Explore recipes by **categories** (e.g. Breakfast, Lunch, Desserts)
+- Discover meals by **region** (e.g. Italian, Mexican, Nigerian)
+- View **trending**, **random**, and **new** meals
 
-### Search & Filter
-- Powerful search functionality to find recipes by name
-- Filter recipes by ingredients you have on hand
-- Advanced filtering by dietary restrictions (Vegetarian, Vegan, Gluten-Free)
-- Search by meal type or preparation time
+### 🔍 Smart Search & Filters
+- Search by meal name or ingredients
+- Filter by **dietary needs** (Vegetarian, Vegan, etc.)
+- Filter by **cuisine**, **meal type**, or **prep time**
 
-### User Experience
-- Detailed recipe pages with ingredients, measurements, and instructions
-- Step-by-step cooking mode with timers
-- Video tutorials for complex recipes
+### 👩‍🍳 Cooking Experience
+- Step-by-step cooking instructions
 - Ingredient substitution suggestions
-- Serving size adjustment calculator
+- Auto-calculated serving adjustments
+- Timer mode for guided cooking
+- Video tutorials (if available)
 
-### Personalization
-- Create and customize user profiles
-- Save favorite recipes for quick access
-- Create custom collections and meal plans
-- Rate and review recipes
+### 📁 Personalization
+- Save favorite recipes
+- Create custom collections & meal plans
 - Track cooking history
+- User profiles (for multiple users or devices)
 
-### Offline Capabilities
+### 📶 Offline Mode
 - Save recipes for offline viewing
-- Automatic syncing when back online
-- Reduced data usage mode
+- Auto-sync when reconnected
+- Data-saving mode
+
+---
 
 ## 📱 Screenshots
 
@@ -57,36 +60,38 @@ Gomine Food is a feature-rich recipe application built with Flutter that leverag
   <img src="screenshots/favorites.png" width="200" alt="Favorites"/>
 </p>
 
+---
+
 ## 🔧 Technical Details
 
-### TheMealDB API Integration
-Gomine Food integrates with [TheMealDB API](https://www.themealdb.com/api.php), a comprehensive database of recipes and meal information. The app utilizes the following API endpoints:
+### 🧠 Architecture
+- **MVVM pattern** with `Provider` for state management
+- **Repository layer** to abstract API and local storage
+- API integration via `http` package
+- Offline caching with `sqflite`
+- Responsive UI using `LayoutBuilder` and `MediaQuery`
 
-- `/search.php` - Search for recipes by name or ingredient
-- `/lookup.php` - Get detailed information about a specific recipe
-- `/categories.php` - Get all meal categories
-- `/filter.php` - Filter meals by category, area, or ingredient
-- `/random.php` - Get a random meal suggestion
+### 🌐 API Endpoints Used
+- `search.php?s=...` — Search by name
+- `lookup.php?i=...` — Meal details by ID
+- `categories.php` — Get meal categories
+- `filter.php?c=...` — Meals by category
+- `random.php` — Get random meals
 
-### Architecture
-The app follows a clean architecture pattern with:
-- Repository pattern for data management
-- Provider for state management
-- Service-oriented approach for API communication
-- Local caching using SQLite for offline functionality
+---
 
-## 🚀 Installation
+## 🚀 Getting Started
 
-### Prerequisites
-- Flutter SDK (version 3.0.0 or higher)
-- Dart SDK (version 2.17.0 or higher)
-- Android Studio / VS Code with Flutter extensions
-- An active internet connection for API calls
+### 📦 Prerequisites
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (>= 3.0.0)
+- Dart SDK (>= 2.17.0)
+- VS Code / Android Studio
+- A connected device or emulator
 
-### Setup Instructions
+### 🧪 Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/gomine_food.git
-   cd gomine_food
-# gomine-food-2.0
+```bash
+git clone https://github.com/yourusername/gomine_food.git
+cd gomine_food
+flutter pub get
+flutter run

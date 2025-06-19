@@ -1212,8 +1212,6 @@ import 'app_scaffold.dart';
 import '../widgets/recipe_detail_screen.dart';
 import '../widgets/recipe_file_handler.dart';
 
-
-
 class RecipeLibraryScreen extends StatefulWidget {
   const RecipeLibraryScreen({super.key});
 
@@ -1845,7 +1843,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
         directory = await getApplicationDocumentsDirectory();
       }
 
-      final file = File('${directory!.path}/${recipe['fileName']}');
+      final file = File('${directory?.path}/${recipe['fileName']}');
       if (await file.exists()) {
         await file.delete();
       }
@@ -1937,7 +1935,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
                   // Delete all recipe files
                   for (var recipe in _recipes) {
                     final file =
-                        File('${directory!.path}/${recipe['fileName']}');
+                        File('${directory?.path}/${recipe['fileName']}');
                     if (await file.exists()) {
                       await file.delete();
                     }
@@ -1990,7 +1988,7 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
       appBar: AppBar(
         title: const Text('My Recipe Library'),
         backgroundColor: primaryColor,
-          automaticallyImplyLeading: false, 
+        automaticallyImplyLeading: false,
         foregroundColor: Colors.white,
         actions: [
           // Add favorites filter toggle
@@ -2419,4 +2417,3 @@ class _RecipeLibraryScreenState extends State<RecipeLibraryScreen> {
     );
   }
 }
-
